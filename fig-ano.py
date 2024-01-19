@@ -22,7 +22,7 @@ app.layout = html.Div([
        marks={str(year): str(year) for year in df['year'].unique()},
        step=None
    ),
-   
+   html.Hr(),
    html.Div([
    dcc.Dropdown(id='drop',
             options=[{"label":"Espectativa de Vida", 'value': 'lifeExp'},
@@ -36,7 +36,7 @@ app.layout = html.Div([
             options=country,
             value='Brazil'
                  ),
-   html.Button(id='btn', children='Filtrar'),
+   #html.Button(id='btn', children='Filtrar'),
    
    dcc.Graph(id='fig2')
 ]),
@@ -60,12 +60,12 @@ def update_figure(selected_year):
 
 @app.callback(
     Output('fig2',"figure"),
-      Input('btn', 'n_clicks'),
-        State(component_id='drop', component_property='value'),
-        State(component_id='drop2', component_property='value'),
+      #Input('btn', 'n_clicks'),
+        Input(component_id='drop', component_property='value'),
+        Input(component_id='drop2', component_property='value'),
      
     prevent_initial_call=False)
-def update_brasil(btn, value, pais):
+def update_brasil(value, pais):
     brasil = df[df['country']== pais]
     fig2 = px.bar(brasil, x=value, y='year', color='country')
     return fig2
