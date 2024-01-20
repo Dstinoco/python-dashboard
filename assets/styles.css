@@ -1,29 +1,11 @@
-html {
-    background-color: black;
-    color: white;
-}
-
-h1{
-    color: azure;
+#card1 {
+    height: 90vh;
+    margin: 20px 5px 20px 20px;
+    padding: 20px;
 }
 
 
-#graph {
-    background-color: black;
-    margin-top: 25px;
-}
 
-#check {
-    color: azure;
-    margin-top: 25px;
-}
-
-#texto1 {
-    color: azure;
-    margin-top: 15px;
-    
-}
-
-#my-output{
-    color: white;
+#title{
+    font-family: Valtaire;
 }
